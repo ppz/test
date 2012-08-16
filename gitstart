@@ -1,0 +1,27 @@
+#!/bin/bash
+DIR=$PWD
+echo "git dir is:"
+read GIT_DIR
+echo $GET_DIR
+if [ -z $GIT_DIR ] 
+then
+    if [ -e $HOME"/bin/gitstart.data" ] 
+    then
+        GIT_DIR=`cat $HOME"/bin/gitstart.data"`
+    else
+        echo "has't directory cache!"
+        exit
+    fi
+else
+    if [ -e $GIT_DIR"/Git Bash.vbs" ]
+    then
+        echo $GIT_DIR > $HOME"/bin/gitstart.data"
+    else
+        echo $GIT_DIR" has't start file!"
+        exit
+    fi
+fi
+
+cd $GIT_DIR
+cmd /c '"Git Bash.vbs"'
+cd $DIR
