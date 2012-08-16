@@ -1,0 +1,16 @@
+#!/bin/bash
+if [ $# -lt 1 ]
+then
+    echo "??"
+    exit 1
+fi
+c=0
+for i in $*
+do
+    let c+=1
+    if [ $c -gt 1 ]
+    then
+        ARGS=$ARGS" "$i
+    fi
+done
+cmd /c "$1".lnk"$ARGS"
